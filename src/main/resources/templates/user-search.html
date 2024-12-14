@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Поиск пользователей</title>
+</head>
+<body>
+<h1>Поиск пользователей</h1>
+<form method="get" action="/users/filter-search">
+  <label for="photoName">Название фотографии:</label>
+  <input type="text" id="photoName" name="photoName" th:value="${photoName}">
+  <button type="submit">Поиск</button>
+</form>
+
+<h2>Результаты:</h2>
+<table border="1">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Имя</th>
+    <th>Город</th>
+    <th>Название фотографии</th>
+    <th>Фотография</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="user : ${users}">
+    <td th:text="${user.id}"></td>
+    <td th:text="${user.name}"></td>
+    <td th:text="${user.city}"></td>
+    <td th:text="${user.photoName}"></td>
+    <td><img th:src="@{/users/{photoName}(photoName=${user.photoName})}" alt="User Photo" width="100"></td>
+
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

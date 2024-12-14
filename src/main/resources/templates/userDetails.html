@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Details</title>
+</head>
+<body>
+<h1>User Details</h1>
+<div th:each="user : ${users}">
+    <p>Name: <span th:text="${user.name}"></span></p>
+    <p>City: <span th:text="${user.city}"></span></p>
+    <p>Photo: <span th:text="${user.photoName}"></span></p>
+    <!-- Здесь вы можете добавить другие поля пользователя -->
+</div>
+</body>
+</html>
